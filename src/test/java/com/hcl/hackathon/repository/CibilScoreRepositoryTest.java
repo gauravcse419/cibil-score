@@ -25,7 +25,7 @@ public class CibilScoreRepositoryTest {
 	 * Should all find cibil score details in db
 	 */
 	@Test
-	public void should_find_no_cibil_score_if_repository_is_empty() {
+	public void should_find_cibil_score_if_repository_empty() {
 		Iterable<CibilScoreEntity> cibilScoreDetailsEntity = repository.findAll();
 
 		assertThat(cibilScoreDetailsEntity).isEmpty();
@@ -55,7 +55,7 @@ public class CibilScoreRepositoryTest {
 		CibilScoreEntity cibilScoreDetailsEntity=new CibilScoreEntity();
 		cibilScoreDetailsEntity.setCibilScore(860.0);
 		cibilScoreDetailsEntity.setName("Johan");
-		cibilScoreDetailsEntity.setPanCardNo("BIH9898998");
+		cibilScoreDetailsEntity.setPanCardNo("AIH989899899");
 		entityManager.persist(cibilScoreDetailsEntity);
 
 

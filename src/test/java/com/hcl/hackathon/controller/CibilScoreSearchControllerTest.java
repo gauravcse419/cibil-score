@@ -66,20 +66,6 @@ public class CibilScoreSearchControllerTest {
 
     }
     /**
-     * Find credit score by pan number Bad request.
-     */
-    @Test
-    public void getCibilScoreByPanNumber_BadRequest() throws Exception {
-        when(cibilScoreService.findCibilScoreByPanCardNumber(Mockito.anyString()))
-                .thenThrow(CibilScoreException.class);
-
-        mvc.perform(MockMvcRequestBuilders.get("/api/v1/cibilscore/null"))
-                .andExpect(status().isBadRequest());
-        verify(cibilScoreService).findCibilScoreByPanCardNumber(Mockito.anyString());
-
-    }
-
-    /**
      * Find credit score by pan number with Internal server.
      */
     @Test

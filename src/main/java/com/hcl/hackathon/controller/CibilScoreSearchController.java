@@ -47,9 +47,6 @@ public class CibilScoreSearchController {
             @Parameter(description="Id of the cibil score to be obtained. Cannot be empty.", required=true)
             @PathVariable String panNumber) {
         logger.debug("Started CibilScoreSearchController.findCibilScoreByPanNumber {} ",panNumber);
-        if(StringUtils.isEmpty(panNumber)){
-            throw new CibilScoreException(HttpStatus.BAD_REQUEST.value(), "Invalid Pan number");
-        }
         return cibilScoreService.findCibilScoreByPanCardNumber(panNumber);
     }
 }
