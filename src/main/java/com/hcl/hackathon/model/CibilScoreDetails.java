@@ -17,7 +17,7 @@ public class CibilScoreDetails {
 
     @Schema(description = "panCard",
             example = "BIH8789088", required = false)
-    private Double panCard;
+    private String panCard;
 
 
 

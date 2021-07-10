@@ -36,30 +36,37 @@
  *   https://creativecommons.org/licenses/by-sa/4.0/
  *   https://creativecommons.org/licenses/by-sa/4.0/legalcode
  */
-package com.hcl.hackathon.config;
+package com.hcl.hackathon.exception;
 
-import io.swagger.v3.oas.models.Components;
-import io.swagger.v3.oas.models.OpenAPI;
-import io.swagger.v3.oas.models.info.Info;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
-/**
- * The type Open api config.
- */
-@Configuration
-public class OpenApiConfig {
+@ResponseStatus(value = HttpStatus.BAD_REQUEST)
+public class CibilScoreException extends RuntimeException {
 
     /**
-     * Custom open api open api.
      *
-     * @return the open api
      */
-    @Bean
-    public OpenAPI customOpenAPI() {
-        return new OpenAPI()
-                .components(new Components())
-                .info(new Info().title("Cibil Score Application API").description(
-                        "This is a sample Spring Boot RESTful service using springdoc-openapi and OpenAPI 3."));
+    private static final long serialVersionUID = 1L;
+
+    private final int errorCode;
+    private final String errorMessage;
+
+
+    public int getErrorCode() {
+        return errorCode;
     }
+
+
+
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+
+    public CibilScoreException(int errorCode, String errorMessage) {
+        super();
+        this.errorCode = errorCode;
+        this.errorMessage = errorMessage;
+    }
+
 }
